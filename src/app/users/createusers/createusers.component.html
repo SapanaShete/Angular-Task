@@ -1,0 +1,121 @@
+
+<div class="row">
+    <div class="col-sm-6">
+      User Form
+      </div>
+</div>
+<div class="container" >
+  <form>
+      <div class="row">
+          <div class="col-sm-6 form-group">
+              <div class="row">
+                  <div class="col-sm-3 ">
+                      <label>name:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" [(ngModel)]="user.name" placeholder="name" class="form-control" name="name" required  > 
+                      
+                    
+                    </div>
+              </div>
+             
+               
+            </div>
+            <div class="col-sm-6 form-group">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Surname:</label>
+                      </div>
+                      <div class="col-sm-6">
+                          <input type="text" [(ngModel)]="user.surname" placeholder="surname" name="surName" class="form-control"> 
+                        </div>
+                </div>
+               
+              
+              </div>
+       
+      </div>
+      <div class="row">
+          <div class="col-sm-6 form-group">
+              <div class="row">
+                  <div class="col-sm-3">
+                      <label>Email:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" [(ngModel)]="user.email" placeholder="email" name="email" class="form-control"> 
+                      </div>
+              </div>
+             
+            
+            </div>
+            <div class="col-sm-6 form-group">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Gender:</label>
+                      </div>
+                      <div class="col-sm-6">
+                        
+                <input type="radio" [(ngModel)]="user.gender" name="male" value="male">Male
+                <input type="radio" [(ngModel)]="user.gender" name="female"value="female">Female
+                        </div>
+                </div>
+               
+              </div>
+       
+      </div>
+      
+      <div class="row">
+          <div class="col-sm-6 form-group">
+              <div class="row">
+                  <div class="col-sm-3">
+                      <label>City:</label>
+                    </div>
+                    <div class="col-sm-6">
+                            <select class="form-control" [(ngModel)]="user.city" name="city">
+                                    <option *ngFor="let city of cities" value={{city.name}} >{{city.name}}</option>
+                                  </select>
+
+                      </div>
+              </div>
+            
+           
+            </div>
+            <div class="col-sm-6 form-group">
+              <div class="row">
+                  <div class="col-sm-3">
+                      <label>Skills:</label>
+                    </div>
+                    <div class="col-sm-6" *ngFor="let skill of skills">
+                      
+                <!-- <input type="checkbox" [(ngModel)]="skill.name" name="skill.name" checked="false"/> -->
+                <input type="checkbox"
+                           name="skills"
+                           value={{skill.name}}
+                           [checked]="skill.checked"
+                           (change)="updateCheckedOptions(skill)"/>
+                           {{skill.name}}
+               
+                      </div>
+              </div>
+               
+              </div>
+       
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-sm-offset-9 " >
+            <button (click)="onSubmit(user)" class="btn btn-primary ">SUBMIT</button>
+      &nbsp;
+            <button (click)="reset()" class="btn btn-secondary ">RESET</button>
+          </div>
+       
+      </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
