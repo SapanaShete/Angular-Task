@@ -12,7 +12,7 @@
                   </div>
             </div>
             <div class="container" >
-              <form>
+              <form name="myForm">
                   <div class="row">
                       <div class="col-sm-6 form-group">
                           <div class="row">
@@ -20,8 +20,10 @@
                                   <label>name:</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" [(ngModel)]="user.name" placeholder="name" class="form-control" name="name" required  > 
-                                  
+                                    <input type="text" [(ngModel)]="user.name" placeholder="name" class="form-control" name="name" required  
+                                     ng-pattern="/^[a-zA-Z]+$/"> 
+                                     
+                                    <!-- <span ng-show="myForm.name.$touched && myForm.name.$invalid" style="color:red">The name is required.</span> -->
                                 
                                 </div>
                           </div>
@@ -133,9 +135,10 @@
 
 <div class="row" *ngIf="featureSelected === 'createusers'">
         <div class="col-sm-12 col-sm-offset-9 " >
-            <button (click)="onSubmit(user)" class="btn btn-primary " [disabled]="!user.uploadFileName">SUBMIT</button>
+                <button (click)="onSubmit(user)" class="btn btn-primary " >SUBMIT</button>
+            <!-- <button (click)="onSubmit(user)" class="btn btn-primary " [disabled]="!user.uploadFileName">SUBMIT</button> -->
       &nbsp;
-            <button (click)="reset()" class="btn btn-secondary ">RESET</button>
+            <button (click)="onReset()" class="btn btn-secondary ">RESET</button>
           </div>
        
       </div>

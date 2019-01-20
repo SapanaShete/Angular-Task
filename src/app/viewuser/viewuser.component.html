@@ -1,21 +1,33 @@
-
-<ul class="list-group">
+<div class="row">
+    <div class="col-sm-12">
+      <h4>User Details</h4>
+      </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+<ul class="list-group" >
   <li class="list-group-item">
-   Name:{{user.name}}
+   <b>Name:</b>{{user.name}}
   </li>
   <li class="list-group-item">
-    Surname:
+      <b>Surname:</b>{{user.surname}}
    </li>
    <li class="list-group-item">
-    Email:
+      <b>Email:</b>{{user.email}}
+   </li>
+   <li class="list-group-item" >
+         <b>Skills:</b>{{user.skills}}
+     <!-- <span *ngFor="let skill of user.skills">
+        <b>Skills:</b>{{skill}}
+     </span> -->
+    
    </li>
    <li class="list-group-item">
-    Skills:
+      <b>Gender:</b> {{user.gender}}
    </li>
    <li class="list-group-item">
-    Gender:
-   </li>
-   <li class="list-group-item">
-    Profile:
+      <b>Profile:</b>{{user.profile}}
    </li>
    </ul>
+  </div>
+</div>

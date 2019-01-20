@@ -18,8 +18,18 @@ export class UserserviceService {
     let body = res;
     return body || { };
   }
-  addUser(user): Observable<any> {
-    console.log("in Service",user)
+  getCities(): Observable<any> {
+    return this.http.post(`${this.userUrl}/city`, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError()));
+  }
+
+  getSkills(): Observable<any> {
+    return this.http.post(`${this.userUrl}/get/skills`, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError()));
+  }
+  addUser(user,formData): Observable<any> {
     return this.http.post(this.userUrl+  "/adduser" , user, httpOptions)
       .pipe(
         catchError(this.handleError())
@@ -38,7 +48,6 @@ export class UserserviceService {
       );
   }
   getUser(id): Observable<any> {
-    console.log("In serviceid",id)
     const url = `${this.userUrl}/${id}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),

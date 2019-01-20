@@ -11,7 +11,10 @@
           <th>Action</th>
                 </tr>
         <tr *ngFor="let user of users">
-          <td  style="text-align: center">{{user.profile}}</td>
+          <td  style="text-align: center"><img *ngIf="user.profile===''" class="thumbnail-image" src=""
+            alt="..." />
+            <img *ngIf="user.profile!==''" class="thumbnail-image" src="/images/{{user.profile}}.">
+            {{user.profile}}</td>
           <td  style="text-align: center">{{user.name}}</td>
           <td   style="text-align: center">{{user.email}}</td>
           <td   style="text-align: center">{{user.surname}}</td>
@@ -20,7 +23,7 @@
           <td   style="text-align: center">
             <a   routerLink="/users/email/edit/{{user.email}}">Edit</a> &nbsp;
             <a (click)="ondeleteUser(user.id)">Delete</a> &nbsp;
-            <a [routerLink]="['/users/email', user]">View</a> 
+            <a routerLink="/users/email/{{user.email}}">View</a> 
             
           </td>
         </tr>

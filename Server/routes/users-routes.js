@@ -10,5 +10,8 @@ router.get('/', userController.getAllUser)
 router.get('/:id', userController.getUser)
 router.delete('/deleteUser/:id', userController.deleteUser);
 
+router.post('/city', userController.getAllCity)
+router.post('/get/skills', userController.getAllSkills)
+
 
 module.exports = router;

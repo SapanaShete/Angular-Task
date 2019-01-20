@@ -6,6 +6,7 @@ const path=require("path");
 const http=require("http");
 const cors = require('cors');
 const app = express();
+const fs = require('fs');
 
 sequelize
     .authenticate()
