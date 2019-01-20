@@ -12,22 +12,39 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserserviceService {
-  private apiUrl = 'http://localhost:3001/users'
+  private userUrl = 'http://localhost:3001/users'
   constructor( private http: HttpClient) { }
-
-  addUser (user): Observable<any> {
-    // return this.http.post<any>(this.userUrl, user, httpOptions).pipe(tap((user) => 
-    // console.log(`added hero w/ id=${user.id}`)),
-    //   catchError(this.handleError<any>('addUser'))
-    // );
-
-    return this.http.post(`${this.apiUrl}/addUser`, user)
-    .pipe(
-      catchError(this.handleError())
-    );
+  private extractData(res: Response) {
+    let body = res;
+    return body || { };
   }
-
-
+  addUser(user): Observable<any> {
+    console.log("in Service",user)
+    return this.http.post(this.userUrl+  "/adduser" , user, httpOptions)
+      .pipe(
+        catchError(this.handleError())
+      );
+  }
+  getUsers(): Observable<any> {
+    return this.http.get(this.userUrl, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError()));
+  }
+  deleteUsers(id: string): Observable<{}> {
+    const url = `${this.userUrl}/deleteuser/${id}`;
+    return this.http.delete(url, httpOptions)
+      .pipe(
+        catchError(this.handleError())
+      );
+  }
+  getUser(id): Observable<any> {
+    console.log("In serviceid",id)
+    const url = `${this.userUrl}/${id}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError()));
+  }
+  
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
  

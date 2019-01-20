@@ -33,6 +33,7 @@ const User = sequelize.define('user', {
         tableName: 'user'
     });
 
-module.exports = {
-    User: User
-};
+// module.exports = {
+//     User: User
+// };
+module.exports = User

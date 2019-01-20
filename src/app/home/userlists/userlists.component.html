@@ -1,3 +1,30 @@
-<p>
-  userlists works!
-</p>
+<div class="row">
+  <div class="col-sm-12" *ngIf="users.length>0">
+    
+      <table style="width: 100%;" border="1">
+        <tr><th>ProfilePhoto</th>
+          <th>Name</th>
+          <th>Email ID</th>
+          <th>Surname</th>
+          <th>Skills</th>
+          <th>Gender</th>
+          <th>Action</th>
+                </tr>
+        <tr *ngFor="let user of users">
+          <td  style="text-align: center">{{user.profile}}</td>
+          <td  style="text-align: center">{{user.name}}</td>
+          <td   style="text-align: center">{{user.email}}</td>
+          <td   style="text-align: center">{{user.surname}}</td>
+          <td  style="text-align: center">{{user.skills}}</td>
+          <td   style="text-align: center">{{user.gender}}</td>
+          <td   style="text-align: center">
+            <a   routerLink="/users/email/edit/{{user.email}}">Edit</a> &nbsp;
+            <a (click)="deleteUser(user.id)">Delete</a> &nbsp;
+            <a [routerLink]="['/users/email', user]">View</a> 
+            
+          </td>
+        </tr>
+      </table>
+  
+  </div>
+</div>

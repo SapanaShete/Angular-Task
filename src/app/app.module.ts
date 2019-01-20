@@ -9,6 +9,7 @@ import { CreateusersComponent } from './users/createusers/createusers.component'
 import { UploadProfileComponent } from './users/upload-profile/upload-profile.component';
 import { UserlistsComponent } from './home/userlists/userlists.component';
 import { HttpClientModule }    from '@angular/common/http';
+import { ViewuserComponent } from './viewuser/viewuser.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule }    from '@angular/common/http';
     UsersComponent,
     CreateusersComponent,
     UploadProfileComponent,
-    UserlistsComponent
+    UserlistsComponent,
+    ViewuserComponent
   ],
   imports: [
     BrowserModule,
