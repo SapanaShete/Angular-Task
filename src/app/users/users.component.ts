@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
     gender:"",
     city:"",
     skills:[],
-    uploadFileName:""
+    uploadFileName:"",
   }
   cities:Master[]=CITIES
   skills:Master[]=SKILLS

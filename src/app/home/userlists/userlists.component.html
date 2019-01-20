@@ -19,7 +19,7 @@
           <td   style="text-align: center">{{user.gender}}</td>
           <td   style="text-align: center">
             <a   routerLink="/users/email/edit/{{user.email}}">Edit</a> &nbsp;
-            <a (click)="deleteUser(user.id)">Delete</a> &nbsp;
+            <a (click)="ondeleteUser(user.id)">Delete</a> &nbsp;
             <a [routerLink]="['/users/email', user]">View</a> 
             
           </td>

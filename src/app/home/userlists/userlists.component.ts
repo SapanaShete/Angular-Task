@@ -33,4 +33,14 @@ export class UserlistsComponent implements OnInit {
       });
    
   }
-}
+
+  ondeleteUser(id){
+    this.userService.deleteUsers(id).subscribe(
+      res => {     
+        this.getUsers();
+      }, err => {
+        console.log(err);
+      });
+    }
+  }
+

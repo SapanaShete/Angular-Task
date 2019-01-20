@@ -30,8 +30,8 @@ export class UserserviceService {
       map(this.extractData),
       catchError(this.handleError()));
   }
-  deleteUsers(id: string): Observable<{}> {
-    const url = `${this.userUrl}/deleteuser/${id}`;
+  deleteUsers(id): Observable<{}> {
+    const url = `${this.userUrl}/deleteUser/${id}`;
     return this.http.delete(url, httpOptions)
       .pipe(
         catchError(this.handleError())

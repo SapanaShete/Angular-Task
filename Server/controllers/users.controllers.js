@@ -26,9 +26,7 @@ if(req.body.id==="" && req.body.id===undefined && req.body.id===null){
     return res.json({ "success": false, "err": err});
   })
 }
-else{
- 
-       
+else{ 
         User.update(user,
             { where: { id: req.body.id } })
             .then((result) => {
@@ -36,8 +34,6 @@ else{
             }).catch((err) => {
                 return res.json({ "success": false, "err":err });
             })
-
-
 
 }
 }
@@ -65,4 +61,15 @@ exports.getUser = (req, res) => {
       return res.json({ "success": false, "err": messages.genericServerError });
   })
  
+}
+exports.deleteUser = (req, res) => {
+User.destroy({
+  where: {id:req.params.id}
+})
+.then(result => {
+  console.log("result",result)
+  return res.json({ "success": true, "msg": "User Deleted successfully" })
+}).catch((err) => {
+    return res.json({ "success": false, "err": messages.genericServerError });
+})
 }
